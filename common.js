@@ -21,22 +21,21 @@ $(document).ready(function(){
 		}
 		exports.showCalendar = function(string){
  		var arr = [];
- 		var day;
+ 		var day = moment();
  		if(string == null){
- 			day = moment();
+ 			day = moment().subtract(1, 'day');
  		}
  		if(string == "current"){
- 			day = moment();
+ 			day = moment().subtract(1, 'day');
  		}
  		if(string == "next"){
- 			day = moment().add(7, 'day');
+ 			day = moment().subtract(1, 'day').add(7, 'day');
  		}
  		if(string == "prev"){
  			day = moment().subtract(7, 'day');
  		}
 	      for(var i = 1; i < 8; i++){
 	     	  day.day(i);
-
 	          if(day.format('dddd') == "Monday"){
 	          		var Monday = "Понедельник /" + day.format('YYYY-MM-DD');
 	              arr.push(Monday);
